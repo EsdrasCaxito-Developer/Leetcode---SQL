@@ -56,3 +56,17 @@ WHERE id IN (
     ) AS duplicates
     WHERE rn > 1
 );
+
+#Melhor de ler e visualizar
+
+with duplicatas as (
+    select id, row_number() over(
+        partition by email
+        order by id
+    ) as rn from Person
+)
+
+delete from Person
+where id in (
+select id from duplicatas 
+where rn > 1);
