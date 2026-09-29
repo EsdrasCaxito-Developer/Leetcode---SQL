@@ -56,6 +56,7 @@ WHERE id IN (
     ) AS duplicates
     WHERE rn > 1
 );
+<<<<<<< Updated upstream
 
 #Melhor de ler e visualizar
 
@@ -70,3 +71,5 @@ delete from Person
 where id in (
 select id from duplicatas 
 where rn > 1);
+=======
+>>>>>>> Stashed changes
